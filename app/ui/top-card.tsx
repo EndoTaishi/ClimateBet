@@ -18,7 +18,7 @@ export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
   const end_date = new Date(quiz.end_date);
 
   return (
-    <article
+    <div
       key={quiz.id}
       className="aspect-[4/3] bg-white flex flex-col justify-end border border-gray-300 m-1 p-2 rounded-md"
     >
@@ -44,6 +44,6 @@ export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
           {Array.isArray(quiz) ? quiz[0].title : quiz.title}
         </Link>
       </div>
-    </article>
+    </div>
   );
 }
