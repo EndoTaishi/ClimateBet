@@ -46,7 +46,7 @@ export default async function Home() {
     .eq("user_id", users.id);
 
   let totalBets = 0;
-  bets.map((bet) => {
+  bets?.map((bet) => {
     totalBets += bet.point;
   });
 

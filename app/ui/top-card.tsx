@@ -1,6 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+type Quiz = {
+  id: number;
+  title: string;
+  description: string;
+  start_date: string;
+  end_date: string;
+  created_at: string;
+  updated_at: string;
+};
+
 export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
   const quiz = quizzes[0];
 
