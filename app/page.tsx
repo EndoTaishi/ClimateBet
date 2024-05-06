@@ -57,7 +57,11 @@ export default async function Home() {
         <div className="flex justify-between items-center bg-white rounded-full py-1 px-6">
           <p>
             保有ポイント:
-            {points.total_points - totalBets}
+            {points.total_points && totalBets
+              ? points.total_points - totalBets
+              : points.total_points && !totalBets
+                ? points.total_points
+                : 0}
           </p>
           <Link
             href="/presents"
