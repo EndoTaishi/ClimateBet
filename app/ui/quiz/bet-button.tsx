@@ -8,7 +8,7 @@ export default function BetButton() {
     // イベントの型をReact.ChangeEvent<HTMLInputElement>に変更
     setBetAmount(e.target.value);
   };
-  const [option, setOption] = useState("Yes");
+  const [option, setOption] = useState("はい");
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -17,9 +17,9 @@ export default function BetButton() {
           <input
             type="radio"
             name="option"
-            value="Yes"
-            checked={option === "Yes"}
-            onChange={() => setOption("Yes")}
+            value="はい"
+            checked={option === "はい"}
+            onChange={() => setOption("はい")}
           />
           はい
         </label>
@@ -27,9 +27,9 @@ export default function BetButton() {
           <input
             type="radio"
             name="option"
-            value="No"
-            checked={option === "No"}
-            onChange={() => setOption("No")}
+            value="いいえ"
+            checked={option === "いいえ"}
+            onChange={() => setOption("いいえ")}
           />
           いいえ
         </label>
