@@ -19,7 +19,7 @@ export default function SubCard({ quizzes }: { quizzes: Quiz[] }) {
     return (
       <div
         key={quiz.id}
-        className="border border-gray-300 m-1 p-1 rounded-md bg-white"
+        className="border border-gray-300 m-1 p-1 rounded-md bg-white sm:w-2/3"
       >
         <Link href={`/quiz/${quiz.id}`}>
           <div className="flex justify-between p-2">

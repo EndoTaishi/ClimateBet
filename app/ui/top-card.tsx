@@ -20,7 +20,7 @@ export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
   return (
     <div
       key={quiz.id}
-      className="bg-white flex flex-col justify-end border border-gray-300 m-1 p-2 rounded-md"
+      className="sm:w-2/3 bg-white flex flex-col justify-end border border-gray-300 m-1 p-2 rounded-md"
     >
       <div>
         <Image
@@ -29,7 +29,7 @@ export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
           height={500}
           alt="Picture of forest"
           priority={true}
-          className="object-cover mb-2 aspect-[4/3] rounded-md"
+          className="flex justify-center items-center object-cover mb-2 aspect-[4/3] sm:w-full sm:h-80 rounded-md"
         />
         <div className="h-1/4">
           {end_date < now ? (

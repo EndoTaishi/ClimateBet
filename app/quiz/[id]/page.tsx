@@ -16,6 +16,10 @@ export default async function Page({
     data: { user },
   } = await supabase.auth.getUser();
 
+  if (!user) {
+    return redirect("/login");
+  }
+
   const { data: quiz } = await supabase
     .from("quizzes")
     .select("*")
@@ -123,7 +127,7 @@ export default async function Page({
           height={500}
           alt="Picture of forest"
           priority={true}
-          className="object-cover aspect-[4/3]"
+          className="object-cover aspect-[4/3] w-full"
         />
         <div className="my-6 px-3">
           <h1 className="text-3xl font-bold mb-4">{quiz.title}</h1>
@@ -161,8 +165,17 @@ export default async function Page({
             {thisQuizBet.point === 0 ? <p>これでベット！</p> : <p>更新する</p>}
           </button>
         </form>
+      ) : thisQuizBet?.point ? (
+        <div className="flex flex-col justify-center items-center">
+          <p className="px-2 border-t-0 border-r-0 border-l-0 border-b-2 border-yellow-500">
+            あなたは{thisQuizBet.point * quiz.yes_odd}ポイントを獲得しました！
+          </p>
+          <p className="flex justify-center items-center text-xl font-bold bg-[brown] text-white py-4 px-6 rounded-md my-4 w-3/5">
+            終了しました
+          </p>
+        </div>
       ) : (
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <p className="flex justify-center items-center text-xl font-bold bg-[brown] text-white py-4 px-6 rounded-md my-4 w-3/5">
             終了しました
           </p>
