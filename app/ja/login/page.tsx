@@ -21,10 +21,10 @@ export default function Login({
     });
 
     if (error) {
-      return redirect("/login?message=Check what you typed");
+      return redirect("/ja/login?message=Check what you typed");
     }
 
-    return redirect("/top");
+    return redirect("/ja/top");
   };
 
   const signUp = async (formData: FormData) => {
@@ -49,10 +49,10 @@ export default function Login({
 
     if (error) {
       console.log(error);
-      return redirect("/login?message=Try again");
+      return redirect("/ja/login?message=Try again");
     }
 
-    return redirect("/login?message=check your email");
+    return redirect("/ja/login?message=check your email");
   };
 
   return (
@@ -60,7 +60,7 @@ export default function Login({
       <div className="flex justify-center items-center px-8 w-full md:w-1/2 gap-2 mt-16">
         <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
           <label className="text-md" htmlFor="username">
-            User name
+            ニックネーム
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -69,7 +69,7 @@ export default function Login({
             required
           />
           <label className="text-md" htmlFor="email">
-            Mail
+            メールアドレス
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -78,7 +78,7 @@ export default function Login({
             required
           />
           <label className="text-md" htmlFor="password">
-            Password
+            パスワード
           </label>
           <input
             className="rounded-md px-4 py-2 bg-inherit border mb-6"
@@ -92,14 +92,14 @@ export default function Login({
             className="bg-green-700 text-white rounded-md px-4 py-2 text-foreground mb-2"
             pendingText="Signing In..."
           >
-            Sign in
+            ログイン
           </SubmitButton>
           <SubmitButton
             formAction={signUp}
             className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
             pendingText="Signing Up..."
           >
-            Sign up
+            アカウントを登録
           </SubmitButton>
           {searchParams?.message && (
             <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
