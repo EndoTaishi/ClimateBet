@@ -108,16 +108,16 @@ export default async function Page({
         {searchParams?.message === "Check your bet amount" && (
           <div className="flex justify-center items-center bg-red-500">
             <p className="text-sm font-bold p-4 text-white">
-              賭けたポイントが保有ポイントを超えています！
+              Your bet amount is over your holding points!
               <br />
-              もう一度挑戦してください。
+              Try again!
             </p>
           </div>
         )}
         {searchParams?.message === "your bet amount is under zero" && (
           <div className="flex justify-center items-center bg-red-500">
             <p className="text-sm font-bold p-4 text-white">
-              0より大きいポイントを使ってください！
+              You need to bet more than 0 points!
             </p>
           </div>
         )}
@@ -132,7 +132,7 @@ export default async function Page({
         <div className="my-6 px-3">
           <h1 className="text-3xl font-bold mb-4">{quiz.title}</h1>
           <p className="text-sm text-gray-700 mb-2">
-            Expired：{quiz.end_date}
+            Expired: {quiz.end_date}
           </p>
           <p className="w-20 border border-solid border-black py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
             Description
@@ -142,7 +142,7 @@ export default async function Page({
         <div className="flex justify-center">
           {thisQuizBet?.option ? (
             <p className="mb-4 p-4 bg-gray-500 font-bold text-white">
-              You're betting {thisQuizBet.point} points on "{thisQuizBet.option}"!
+              You&apos;re betting {thisQuizBet.point} points on &quot;{thisQuizBet.option}&quot;!
             </p>
           ) : (
             <p className="flex justify-center mb-2">

@@ -27,23 +27,23 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center w-full">
                 <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
                     <p className="text-5xl mb-1">🌱</p>
-                    <p className="text-white text-lg">The only member (me!) is an ecology major; since I'm not a CS major, I am always open to all sorts of advice and help with development.</p>
+                    <p className="text-white text-lg">The only member (me!) is an ecology major; since I am not a CS major, I&apos;m always open to all sorts of advice and help with development.</p>
                 </div>
                 <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
                     <p className="text-5xl mb-1">🤑</p>
-                    <p className="text-white text-lg"><span className="line-through">Since I'm unable to develop a payment function, </span>I'm distributing 1000 pts to those who register now. Please play as a test user!</p>
+                    <p className="text-white text-lg"><span className="line-through">Since I&apos;m unable to develop a payment function, </span>I&apos;m distributing 1000 pts to those who register now. Please play as a test user!</p>
                 </div>
                 <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
                     <p className="text-5xl mb-1">☕️</p>
-                    <p className="text-white text-lg">I am plannning to send gift cards to those who play as a test user and win the game.</p>
+                    <p className="text-white text-lg">I&apos;m plannning to send gift cards to those who play as a test user and win the game.</p>
                 </div>
             </div>
             <div className="flex flex-col justify-start w-full mt-4">
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                Are you interested in this new game? Now it's your turn to experience it!
+                Are you interested in this new game? Now it&apos;s your turn to experience it!
                 </p>
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                Come on, let's start the adventure together!
+                Come on, let&apos;s start the adventure together!
                 </p>
             </div>
 
