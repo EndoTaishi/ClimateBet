@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/server";
-import BetButton from "@/app/ui/quiz/bet-button";
+import BetButton from "@/app/ja/ui/quiz/bet-button";
 import { redirect } from "next/navigation";
 
 export default async function Page({
@@ -17,7 +17,7 @@ export default async function Page({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return redirect("/login");
+    return redirect("/ja/login");
   }
 
   const { data: quiz } = await supabase
@@ -63,12 +63,12 @@ export default async function Page({
     const betPoint = parseInt(betPointStr as string, 10);
     if (isNaN(betPoint) || betPoint <= 0) {
       return redirect(
-        `/quiz/${params.id}?message=your bet amount is under zero`,
+        `/ja/quiz/${params.id}?message=your bet amount is under zero`,
       );
     }
     const holdingPoints = points!.total_points - totalBets;
     if (betPoint > holdingPoints) {
-      return redirect(`/quiz/${params.id}?message=Check your bet amount`);
+      return redirect(`/ja/quiz/${params.id}?message=Check your bet amount`);
     }
 
     if (bets) {
@@ -81,7 +81,7 @@ export default async function Page({
         .eq("user_id", users.id)
         .eq("quiz_id", quiz.id);
 
-      return redirect("/top?message=your bet is updated!");
+      return redirect("/ja/top?message=your bet is updated!");
     } else {
       await supabase.from("bets").insert({
         user_id: users.id,
@@ -91,7 +91,7 @@ export default async function Page({
       });
     }
 
-    return redirect("/top?message=You betted!");
+    return redirect("/ja/top?message=You betted!");
   };
 
   const { data: result } = await supabase
@@ -132,21 +132,22 @@ export default async function Page({
         <div className="my-6 px-3">
           <h1 className="text-3xl font-bold mb-4">{quiz.title}</h1>
           <p className="text-sm text-gray-700 mb-2">
-            Expired：{quiz.end_date}
+            期限：{quiz.end_date}まで
           </p>
           <p className="w-20 border border-solid border-black py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
-            Description
+            解説
           </p>
           <p>{quiz.description}</p>
         </div>
         <div className="flex justify-center">
           {thisQuizBet?.option ? (
             <p className="mb-4 p-4 bg-gray-500 font-bold text-white">
-              You're betting {thisQuizBet.point} points on "{thisQuizBet.option}"!
+              あなたは今『{thisQuizBet.option}』に{thisQuizBet.point}
+              ポイント分をベットしています！
             </p>
           ) : (
             <p className="flex justify-center mb-2">
-              Bet your points!
+              持っているポイントをベットしてみよう！
             </p>
           )}
         </div>
@@ -161,22 +162,22 @@ export default async function Page({
             type="submit"
             className="text-xl font-bold bg-green-700 text-white py-4 px-6 rounded-md my-4 w-3/5"
           >
-            {thisQuizBet.point === 0 ? <p>Bet!</p> : <p>Update your bet!</p>}
+            {thisQuizBet.point === 0 ? <p>これでベット！</p> : <p>更新する</p>}
           </button>
         </form>
       ) : thisQuizBet?.point ? (
         <div className="flex flex-col justify-center items-center">
           <p className="px-2 border-t-0 border-r-0 border-l-0 border-b-2 border-yellow-500">
-            You gained {thisQuizBet.point * quiz.yes_odd} points!
+            あなたは{thisQuizBet.point * quiz.yes_odd}ポイントを獲得しました！
           </p>
           <p className="flex justify-center items-center text-xl font-bold bg-[brown] text-white py-4 px-6 rounded-md my-4 w-3/5">
-            Closed!
+            終了しました
           </p>
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center">
           <p className="flex justify-center items-center text-xl font-bold bg-[brown] text-white py-4 px-6 rounded-md my-4 w-3/5">
-            Closed!
+            終了しました
           </p>
         </div>
       )}

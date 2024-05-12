@@ -16,7 +16,7 @@ export default async function Home({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return redirect("/login");
+    return redirect("/ja/login");
   }
 
   const { data: users } = await supabase
@@ -53,23 +53,23 @@ export default async function Home({
         {searchParams?.message === "You betted!" && (
           <div className="flex justify-center items-center bg-green-500">
             <p className="text-sm font-bold p-4 text-white">
-              Your bet is accepted!
+              ベットを受け付けました！
               <br />
-              Please wait for the result!
+              楽しみに待っていてください！
             </p>
           </div>
         )}
         {searchParams?.message === "your bet is updated!" && (
           <div className="flex justify-center items-center bg-green-500">
             <p className="text-sm font-bold p-4 text-white">
-              Your bet is updated!
+              ベットを更新しました！
             </p>
           </div>
         )}
-        <p className="pl-6 mb-2">Hi, {users.name}-san!!</p>
+        <p className="pl-6 mb-2">こんにちは、{users.name}さん!!</p>
         <div className="flex justify-between items-center bg-white rounded-full py-1 px-6">
           <p>
-            Your points:
+            保有ポイント:
             {points.total_points && totalBets
               ? points.total_points - totalBets
               : points.total_points && !totalBets
@@ -80,7 +80,7 @@ export default async function Home({
             href="/presents"
             className="text-xs border border-b border-t-0 border-r-0 border-l-0 border-gray-500"
           >
-            Gifts
+            ポイントを使う
           </Link>
         </div>
       </div>
@@ -90,7 +90,7 @@ export default async function Home({
           ONGOING
         </p>
         <p className="flex justify-center text-xl font-medium w-full pt-4 pb-6">
-          Ongoing quizzes
+          現在開催中の問題
         </p>
       </div>
       <SubCard quizzes={quizzes!} />
@@ -98,7 +98,7 @@ export default async function Home({
         href="/quiz"
         className="flex justify-center items-center bg-green-700 text-white py-4 px-6 rounded-md my-4 w-3/5"
       >
-        See more
+        もっとみる
       </Link>
     </main>
   );

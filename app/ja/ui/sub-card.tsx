@@ -21,16 +21,16 @@ export default function SubCard({ quizzes }: { quizzes: Quiz[] }) {
         key={quiz.id}
         className="border border-gray-300 m-1 p-1 rounded-md bg-white sm:w-2/3"
       >
-        <Link href={`/quiz/${quiz.id}`}>
+        <Link href={`/ja/quiz/${quiz.id}`}>
           <div className="flex justify-between p-2">
             <div className="flex flex-col justify-center w-2/3">
               {endDate < now ? (
                 <p className="w-20 border border-solid border-red-500 py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
-                  Closed!
+                  開催終了
                 </p>
               ) : (
                 <p className="w-20 border border-solid border-green-500 py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
-                  Now Open!
+                  現在開催中
                 </p>
               )}
               <p className="font-bold text-sm">{quiz.title}</p>

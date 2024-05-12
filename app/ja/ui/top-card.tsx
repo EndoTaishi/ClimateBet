@@ -34,14 +34,14 @@ export default async function TopCard({ quizzes }: { quizzes: Quiz[] }) {
         <div className="h-1/4">
           {end_date < now ? (
             <p className="w-20 border border-solid border-red-500 py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
-              Closed!
+              開催終了
             </p>
           ) : (
             <p className="w-20 border border-solid border-green-500 py-1 px-2 rounded-full text-xs flex items-center justify-center mb-2">
-              Now Open!
+              現在開催中
             </p>
           )}
-          <Link href={`/quiz/${quiz.id}`} className="font-bold text-sm">
+          <Link href={`/ja/quiz/${quiz.id}`} className="font-bold text-sm">
             {quiz.title}
           </Link>
         </div>

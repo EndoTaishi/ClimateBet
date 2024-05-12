@@ -7,9 +7,9 @@ export default function PresentCard() {
         <div className="flex justify-between p-2">
           <div className="flex flex-col justify-center w-2/3">
             <p className="text-xs flex items-center justify-start mb-2">
-              You can get this using 500pt!
+              500ptで交換可能
             </p>
-            <h1 className="font-bold text-sm">Starbacks gift card $5</h1>
+            <h1 className="font-bold text-sm">Starbacksギフトカード500円分</h1>
           </div>
           <div className="flex flex-col justify-center w-3/12">
             <Image
