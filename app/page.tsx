@@ -1,105 +1,52 @@
-import TopCard from "./ui/top-card";
-import SubCard from "./ui/sub-card";
-import Link from "next/link";
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
+import Image from "next/image";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { message: string };
-}) {
-  const supabase = createClient();
+export default function Home() {
+    return (
+        <div className="flex flex-col justify-content items-center">
+            <div className="min-h-80 md:min-h-screen flex flex-col justify-center items-center bg-cover bg-center rounded-md mt-16 w-full" style={{ backgroundImage: "url('/IMG_2607.jpg')" }}>
+                <div className="flex flex-col justify-center items-center w-3/4 sm:w-1/2 aspect-square border border-*-4 border-white bg-black bg-opacity-30">
+                    <h1 className="text-white text-3xl md:text-3xl lg:text-4xl">ベッティングで</h1>
+                    <h1 className="text-white text-3xl md:text-3xl lg:text-4xl">気候変動を知る！</h1>
+                </div>
+            </div>
+            <div className="flex flex-col justify-start w-full mt-4">
+                <p className="text-xl text-gray-600 px-4 mb-4">
+                    Climate Betは、気候変動に関する質問に対してポイントをベットすることで、気候変動について学び、気候変動に関する意識を高めることができる新しい形のベッティングアプリです。あなたは今、気候変動に対してとるあなた自身の立場が明確ですか？また、それを裏付けるデータや情報を持っていますか？
+                </p>
+                <p className="text-xl text-gray-600 px-4 mb-4">
+                    あなたの住む地域に地球温暖化はどれほどの影響を及ぼしているのでしょうか。
+                    毎日出題される問題に対して、あなたの予想をポイントでベットしましょう！
+                    <br />
+                    <span className='text-sm text-gray-400'>e.g.)
+                        あなたの住む地域では今年の夏の日最高降水量はこれまでの最高値を更新するでしょうか？
+                        <br />e.g.)地球規模で、来週1週間の気温は過去10年間と比べて上昇するでしょうか？
+                    </span>
+                </p>
+            </div>
+            <h3 className="text-xl font-bold mb-4">聞いてほしいこと</h3>
+            <div className="flex flex-col sm:flex-row justify-center sm:justify-around items-center w-full">
+                <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
+                    <p className="text-5xl mb-1">🌱</p>
+                    <p className="text-white text-lg">唯一のメンバーは生態学専攻です。CS専攻ではないため、開発に関する様々なアドバイスや手助けを常に受け付けています。</p>
+                </div>
+                <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
+                    <p className="text-5xl mb-1">🤑</p>
+                    <p className="text-white text-lg"><span className="line-through">決済機能を開発できないため、</span>登録してくれた方に1000ptを配布しています。ぜひテストユーザーとしてプレイしてみてください！</p>
+                </div>
+                <div className="flex flex-col justify-start items-center bg-gray-600 m-4 w-3/4 sm:w-1/3 aspect-video p-2">
+                    <p className="text-5xl mb-1">☕️</p>
+                    <p className="text-white text-lg">テストユーザーとしてプレイしてくれた方にも、ギフトカードなどの商品をお送りします。</p>
+                </div>
+            </div>
+            <div className="flex flex-col justify-start w-full mt-4">
+                <p className="text-xl text-gray-600 px-4 mb-4">
+                    興味が湧いてきましたか？次はあなたが体験してみる番です！
+                </p>
+                <p className="text-xl text-gray-600 px-4 mb-4">
+                    さあ、一緒に冒険を始めましょう！
+                </p>
+            </div>
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return redirect("/login");
-  }
-
-  const { data: users } = await supabase
-    .from("users")
-    .select("*")
-    .eq("id", user.id)
-    .single();
-
-  const { data: points } = await supabase
-    .from("points")
-    .select("*")
-    .eq("user_id", user.id)
-    .single();
-
-  const { data: quizzes } = await supabase
-    .from("quizzes")
-    .select("*")
-    .order("end_date", { ascending: false })
-    .limit(3);
-
-  const { data: bets } = await supabase
-    .from("bets")
-    .select("point")
-    .eq("user_id", users.id);
-
-  let totalBets = 0;
-  bets?.map((bet) => {
-    totalBets += bet.point;
-  });
-
-  return (
-    <main className="flex flex-col justify-center items-center min-h-screen w-full bg-gray-100">
-      <div className=" w-full mt-16 mx-4 py-2 px-6 text-sm">
-        {searchParams?.message === "You betted!" && (
-          <div className="flex justify-center items-center bg-green-500">
-            <p className="text-sm font-bold p-4 text-white">
-              ベットを受け付けました！
-              <br />
-              楽しみに待っていてください！
-            </p>
-          </div>
-        )}
-        {searchParams?.message === "your bet is updated!" && (
-          <div className="flex justify-center items-center bg-green-500">
-            <p className="text-sm font-bold p-4 text-white">
-              ベットを更新しました！
-            </p>
-          </div>
-        )}
-        <p className="pl-6 mb-2">こんにちは、{users.name}さん!!</p>
-        <div className="flex justify-between items-center bg-white rounded-full py-1 px-6">
-          <p>
-            保有ポイント:
-            {points.total_points && totalBets
-              ? points.total_points - totalBets
-              : points.total_points && !totalBets
-                ? points.total_points
-                : 0}
-          </p>
-          <Link
-            href="/presents"
-            className="text-xs border border-b border-t-0 border-r-0 border-l-0 border-gray-500"
-          >
-            ポイントを使う
-          </Link>
         </div>
-      </div>
-      <TopCard quizzes={quizzes!} />
-      <div className="flex flex-col justify-around items-center w-full pt-6">
-        <p className="text-sm font-medium pb-1 px-1 border-dashed border-b border-t-0 border-r-0 border-l-0 border-black">
-          ONGOING
-        </p>
-        <p className="flex justify-center text-xl font-medium w-full pt-4 pb-6">
-          現在開催中の問題
-        </p>
-      </div>
-      <SubCard quizzes={quizzes!} />
-      <Link
-        href="/quiz"
-        className="flex justify-center items-center bg-green-700 text-white py-4 px-6 rounded-md my-4 w-3/5"
-      >
-        もっとみる
-      </Link>
-    </main>
-  );
+    );
 }

@@ -24,7 +24,7 @@ export default function Login({
       return redirect("/login?message=Check what you typed");
     }
 
-    return redirect("/");
+    return redirect("/top");
   };
 
   const signUp = async (formData: FormData) => {

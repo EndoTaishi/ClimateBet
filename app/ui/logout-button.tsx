@@ -25,5 +25,9 @@ export default async function LogoutButton() {
     <form action={signOut}>
       <button className="text-gray-600 text-xs">ログアウト</button>
     </form>
-  ) : null;
+  ) : (
+    <button className="text-gray-600 text-xs rounded-full px-4 py-2 bg-green-300">
+      <a href="/login" className="text-sm text-black font-bold">登録</a>
+    </button>
+  );
 }
