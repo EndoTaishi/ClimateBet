@@ -162,7 +162,7 @@ export default async function Page({
             type="submit"
             className="text-xl font-bold bg-green-700 text-white py-4 px-6 rounded-md my-4 w-3/5"
           >
-            {thisQuizBet.point === 0 ? <p>これでベット！</p> : <p>更新する</p>}
+            {thisQuizBet?.point === 0 ? <p>これでベット！</p> : <p>更新する</p>}
           </button>
         </form>
       ) : thisQuizBet?.point ? (
