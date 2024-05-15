@@ -22,7 +22,7 @@ export default async function Page() {
           QUIZZES
         </p>
         <h1 className="flex justify-center text-xl font-medium w-full pt-4 pb-6">
-          Quizzes List
+          これまでの問題
         </h1>
       </div>
       <SubCard quizzes={quizzes} />

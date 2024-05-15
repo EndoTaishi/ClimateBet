@@ -18,16 +18,16 @@ export default async function LogoutButton() {
       return;
     }
 
-    return redirect("/login");
+    return redirect("/ja/login");
   };
 
   return user ? (
     <form action={signOut}>
-      <button className="text-gray-600 text-xs">Logout</button>
+      <button className="text-gray-600 text-xs">ログアウト</button>
     </form>
   ) : (
     <button className="text-gray-600 text-xs rounded-full px-4 py-2 bg-green-300">
-      <a href="/login" className="text-sm text-black font-bold">Sign up</a>
+      <a href="/ja/login" className="text-sm text-black font-bold">登録する</a>
     </button>
   );
 }
