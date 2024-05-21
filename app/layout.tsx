@@ -4,7 +4,7 @@ import { NotoSansJP } from "./ui/fonts";
 import Header from "./ui/header";
 
 export const metadata: Metadata = {
-  title: "Climate Bet",
+  title: "Climate Bet - Betting, Gambling on Climate Change!",
   description: "Climate Bet is a brand new platform for betting on climate change! How much is global warming affecting your area? Bet your predictions on such questions posed each day!",
 };
 
