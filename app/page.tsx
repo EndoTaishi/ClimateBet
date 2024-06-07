@@ -7,13 +7,14 @@ export default function Home() {
                     <h1 className="text-white text-3xl md:text-3xl lg:text-4xl">Climate change</h1>
                 </div>
             </div>
+            <a href="https://www.producthunt.com/posts/climate-bet?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-climate&#0045;bet" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=461556&theme=light" alt="Climate&#0032;Bet - Bet&#0032;your&#0032;points&#0032;on&#0032;climate&#0032;change&#0032;via&#0032;our&#0032;Climate&#0032;Bet&#0033; | Product Hunt" className="mt-4"/></a>
             <div className="flex flex-col justify-start w-full mt-4">
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                Our Climate Bet is a new type of betting app that allows you to learn about climate change and raise awareness about climate change by betting points on climate change questions. Are you now clear on your own position you take on climate change? And do you have the data and information to back it up?
+                    Our Climate Bet is a new type of betting app that allows you to learn about climate change and raise awareness about climate change by betting points on climate change questions. Are you now clear on your own position you take on climate change? And do you have the data and information to back it up?
                 </p>
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                How much is global warming affecting your area? 
-                Bet your predictions in points on the questions posed each day!
+                    How much is global warming affecting your area?
+                    Bet your predictions in points on the questions posed each day!
                     <br />
                     <span className='text-sm text-gray-400'>
                         e.g.) Will your area see its highest daily precipitation this summer to date?
@@ -38,10 +39,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-start w-full mt-4">
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                Are you interested in this new game? Now it&apos;s your turn to experience it!
+                    Are you interested in this new game? Now it&apos;s your turn to experience it!
                 </p>
                 <p className="text-xl text-gray-600 px-4 mb-4">
-                Come on, let&apos;s start the adventure together!
+                    Come on, let&apos;s start the adventure together!
                 </p>
             </div>
 
